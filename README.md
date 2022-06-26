@@ -1,57 +1,59 @@
-《Go入门指南》
-===================
+# 1.1 起源与发展
 
-在接触 Go 语言之后，对这门编程语言非常着迷，期间也陆陆续续开始一些帮助国内编程爱好者了解和发展 Go 语言的工作，比如开始录制视频教程[《Go编程基础》](https://github.com/Unknwon/go-fundamental-programming)。但由于目前国内并没有比较好的 Go 语言书籍，而国外的优秀书籍因为英文的缘故在一定程度上也为不少 Go 语言爱好者带来了一些学习上的困扰，不仅为了加快扩散 Go 爱好者的国内群体，本人在完成阅读这本名叫 《The Way to Go》 之后，决定每天抽出一点时间来进行翻译的工作，并且以开源的形式免费分享给有需要的 Go 语言爱好者。
+Go 语言起源 2007 年，并于 2009 年正式对外发布。它从 2009 年 9 月 21 日开始作为谷歌公司 20% 兼职项目，即相关员工利用 20% 的空余时间来参与 Go 语言的研发工作。该项目的三位领导者均是著名的 IT 工程师：Robert Griesemer，参与开发 Java HotSpot 虚拟机；Rob Pike，Go 语言项目总负责人，贝尔实验室 Unix 团队成员，参与的项目包括 Plan 9，Inferno 操作系统和 Limbo 编程语言；Ken Thompson，贝尔实验室 Unix 团队成员，C 语言、Unix 和 Plan 9 的创始人之一，与 Rob Pike 共同开发了 UTF-8 字符集规范。自 2008 年 1 月起，Ken Thompson 就开始研发一款以 C 语言为目标结果的编译器来拓展 Go 语言的设计思想。
 
-尽管该书对目前 Go 语言版本来说有小部分内容相对过时，但是为当下不可多得的好书，相关内容已获得作者同意根据当前 Go 语言版本进行修改而不作出特别声明。
+**这是一个由计算机领域 “发明之父” 所组成的黄金团队，他们对系统编程语言，操作系统和并行都有着非常深刻的见解**
 
-该翻译版本已获得原作者（Ivo Balbaert）本人授权，并表示支持开源事业的发展！
+![](images/1.1.designers\_of\_Go.jpg)
 
-## 翻译进度
+图 1.1 Go 语言设计者：Griesemer、Thompson 和 Pike
 
-19.10 [总结和增强](eBook/19.10.md)
+在 2008 年年中，Go 语言的设计工作接近尾声，一些员工开始以全职工作状态投入到这个项目的编译器和运行实现上。Ian Lance Taylor 也加入到了开发团队中，并于 2008 年 5 月创建了一个 gcc 前端。
 
-## 支持本书
+Russ Cox 加入开发团队后着手语言和类库方面的开发，也就是 Go 语言的标准包。在 2009 年 10 月 30 日，Rob Pike 以 Google Techtalk 的形式第一次向人们宣告了 Go 语言的存在。
 
-如果你喜欢本书 《Go入门指南》，你可以参与到本书的翻译或纠正工作中来，具体请联系【无闻 E-mail：u#gogs.io】，一同完善本书并帮助壮大 Go 语言在国内的学习群体，给大家提供更好的学习资源。
+直到 2009 年 11 月 10 日，开发团队将 Go 语言项目以 BSD-style 授权（完全开源）正式公布了 Linux 和 Mac OS X 平台上的版本。Hector Chu 于同年 11 月 22 日公布了 Windows 版本。
 
-## 交流社区
+作为一个开源项目，Go 语言借助开源社区的有生力量达到快速地发展，并吸引更多的开发者来使用并改善它。自该开源项目发布以来，超过 200 名非谷歌员工的贡献者对 Go 语言核心部分提交了超过 1000 个修改建议。在过去的 18 个月里，又有 150 开发者贡献了新的核心代码。这俨然形成了世界上最大的开源团队，并使该项目跻身 [Ohloh](http://www.ohloh.net) 前 2% 的行列。大约在 2011 年 4 月 10 日，谷歌开始抽调员工进入全职开发 Go 语言项目。开源化的语言显然能够让更多的开发者参与其中并加速它的发展速度。Andrew Gerrand 在 2010 年加入到开发团队中成为共同开发者与支持者。
 
-参见 [Go 语言学习资料与社区索引](https://github.com/Unknwon/go-study-index)。
+在 Go 语言在 2010 年 1 月 8 日被 [Tiobe](http://www.tiobe.com)（闻名于它的编程语言流行程度排名）宣布为 “2009 年年度语言” 后，引起各界很大的反响。目前 Go 语言在这项排名中的最高记录是在 2017 年 1 月创下的第13名，流行程度 2.325%。
 
-关注 Go 语言中文网公众号学习 Go
+### 时间轴：
 
-![](studygolang-qrcode.jpg)
+* 2007 年 9 月 21 日：雏形设计
+* 2009 年 11 月 10日：首次公开发布
+* 2010 年 1 月 8 日：当选 2009 年年度语言
+* 2010 年 5 月：谷歌投入使用
+* 2011 年 5 月 5 日：Google App Engine 支持 Go 语言
 
-### 新人守则
+从 2010 年 5 月起，谷歌开始将 Go 语言投入到后端基础设施的实际开发中，例如开发用于管理后端复杂环境的项目。有句话叫 “吃你自己的狗食”，这也体现了谷歌确实想要投资这门语言，并认为它是有生产价值的。
 
-- 2012 年 3 月 28 日以前的博文中的内容基本过时，不要再看
-- 符合等式 ***百度+思考+失败+翻墙+谷歌+尝试=解决*** 的问题最好不要发问
+Go 语言的官方网站是 [golang.org](http://golang.org)，这个站点采用 Python 作为前端，并且使用 Go 语言自带的工具 godoc 运行在 Google App Engine 上来作为 Web 服务器提供文本内容。在官网的首页有一个功能叫做 Go Playground，是一个 Go 代码的简单编辑器的沙盒，它可以在没有安装 Go 语言的情况下在你的浏览器中编译并运行 Go，它提供了一些示例，其中包括国际惯例 “Hello, World!”。
 
-## 致谢
+更多的信息详见 [github.com/golang/go](https://github.com/golang/go)，Go 项目 Bug 追踪和功能预期详见 [github.com/golang/go/issues](https://github.com/golang/go/issues)。
 
-- 本书原作者：Ivo Balbaert
-- 参与翻译人员：
-	- [@zhanming](https://github.com/zhanming)
-	- themorecolor
-	- [@everyx](https://github.com/everyx)
-	- [@chidouhu](https://github.com/chidouhu)
-	- [@spawnris](https://github.com/spawnris)
-	- [@domainname](https://github.com/domainname)
-	- [@leisore](https://github.com/leisore)
-	- [@dake](https://github.com/dake)
-	- [@glight2000](https://github.com/glight2000)
-	- [@songleo](https://github.com/songleo)
-	- [@marjune163](https://github.com/marjune163)
+Go 通过以下的 Logo 来展示它的速度，并以囊地鼠 (Gopher) 作为它的吉祥物。
 
-## 授权许可
+![](images/1.2.Go\_logo.jpg)
 
-除特别声明外，本书中的内容使用 [CC BY-SA 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/)（创作共用 署名-相同方式共享3.0 许可协议）授权，代码遵循 [BSD 3-Clause License](https://github.com/astaxie/build-web-application-with-golang/blob/master/LICENSE.md)（3 项条款的 BSD 许可协议）。
+图1.2 Go 语言 Logo
 
-## 开始阅读
+谷歌邮件列表 [golang-nuts](http://groups.google.com/group/golang-nuts/) 非常活跃，每天的讨论和问题解答数以百计。
 
-- 您可以选择以下方式阅读本书：
-  - [GitHub在线](./eBook/preface.md)
+关于 Go 语言在 Google App Engine 的应用，这里有一个单独的邮件列表 [google-appengine-go](https://groups.google.com/forum/#!forum/google-appengine-go)，不过 2 个邮件列表的讨论内容并不是分得很清楚，都会涉及到相关的话题。[go-lang.cat-v.org/](http://go-lang.cat-v.org/) 是 Go 语言开发社区的资源站，[irc.freenode.net](http://irc.freenode.net) 的 #go-nuts 是官方的 Go IRC 频道。
 
-想读书的人，不会找不到 [目录](eBook/directory.md) :)
+[@golang](https://twitter.com/golang) 是 Go 语言在 Twitter 的官方帐号，大家一般使用 #golang 作为话题标签。
 
+这里还有一个在 Linked-in 的小组：[www.linkedin.com/groups?gid=2524765\&trk=myg\_ugrp\_ovr](http://www.linkedin.com/groups?gid=2524765\&trk=myg\_ugrp\_ovr)。
+
+Go 编程语言的维基百科：[en.wikipedia.org/wiki/Go\_(programming\_language)](http://en.wikipedia.org/wiki/Go\_\(programming\_language\))
+
+Go 语言相关资源的搜索引擎页面：[gowalker.org](https://gowalker.org)
+
+Go 语言还有一个运行在 Google App Engine 上的 [Go Tour](http://tour.golang.org/)，你也可以通过执行命令 `go install go-tour.googlecode.com/hg/gotour` 安装到你的本地机器上。对于中文读者，可以访问该指南的 [中文版本](https://tour.go-zh.org/welcome/1)，或通过命令 `go install https://bitbucket.org/mikespook/go-tour-zh/gotour` 进行安装。
+
+## 链接
+
+* [目录](directory.md)
+* 上一部分：[前言](preface.md)
+* 下一节: [语言的主要特性与发展的环境和影响因素](01.2.md)
